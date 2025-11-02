@@ -92,3 +92,32 @@ chatForm.addEventListener("submit", async(e) => {
     chatBox.removeChild(loadingMsg);
     addMessage(aiReply, "bot");
 });
+
+// ===== MOBILE KEYBOARD ADJUSTMENT =====
+
+// Select the input area container
+const inputArea = document.querySelector(".input-area");
+
+// Detect when the keyboard appears (viewport height changes)
+let initialViewportHeight = window.visualViewport.height;
+
+window.visualViewport.addEventListener("resize", () => {
+    const currentHeight = window.visualViewport.height;
+
+    // If the height has decreased significantly → keyboard is open
+    if (currentHeight < initialViewportHeight - 150) {
+        inputArea.style.position = "fixed";
+        inputArea.style.bottom = `${window.innerHeight - currentHeight + 10}px`;
+        inputArea.style.left = "0";
+        inputArea.style.width = "100%";
+        inputArea.style.padding = "10px";
+        inputArea.style.background = "rgba(0,0,0,0.6)";
+    } else {
+        // Keyboard closed → restore position
+        inputArea.style.position = "relative";
+        inputArea.style.bottom = "0";
+        inputArea.style.left = "0";
+        inputArea.style.width = "100%";
+        inputArea.style.background = "transparent";
+    }
+});

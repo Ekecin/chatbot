@@ -166,6 +166,10 @@ h1 {
         padding: 15px;
         height: 100%;
     }
+    .input-area {
+        transition: bottom 0.3s ease, background 0.3s ease;
+        z-index: 999;
+    }
     h1 {
         font-size: 20px;
     }
