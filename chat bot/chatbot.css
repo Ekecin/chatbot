@@ -179,8 +179,10 @@ h1 {
 @media (max-width: 480px) {
     body {
         padding: 10px;
+        height: 100vh;
     }
     .chat-container {
+        height: 100%;
         width: 100%;
         border-radius: 15px;
     }
