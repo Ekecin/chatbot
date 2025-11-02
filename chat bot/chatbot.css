@@ -161,37 +161,30 @@ h1 {
 
 @media (max-width: 768px) {
     .chat-container {
-        width: 90%;
-        max-width: 350px;
-        padding: 15px;
-        height: 100%;
-    }
-    .input-area {
-        transition: bottom 0.3s ease, background 0.3s ease;
-        z-index: 999;
-    }
-    h1 {
-        font-size: 20px;
-    }
-    .input-area input {
-        font-size: 13px;
-    }
-    .input-area button {
-        padding: 10px 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
+        position: relative;
+        /* ensures the input area stays inside container */
         height: 100vh;
-    }
-    .chat-container {
-        height: 100%;
-        width: 100%;
-        border-radius: 15px;
+        /* full screen height on mobile */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* pushes chat-box up and input-area down */
+        width: 100vh;
     }
     .chat-box {
-        height: 280px;
+        flex: 1;
+        /* takes all remaining space above input-area */
+        overflow-y: auto;
+    }
+    .input-area {
+        position: sticky;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.1);
+        /* slightly visible background */
+        backdrop-filter: blur(5px);
+        padding: 10px 0;
+        width: 100%;
+        display: flex;
+        gap: 10px;
     }
 }
